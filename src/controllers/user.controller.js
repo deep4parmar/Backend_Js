@@ -175,7 +175,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
         const user = await User.findById(decodedToken?._id)
 
-        if (!incomingRefreshToken) {
+        if (!user) {
             throw new ApiError(401, "Invalid Refresh Token");
         }
 
